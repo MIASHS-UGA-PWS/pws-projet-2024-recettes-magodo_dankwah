@@ -13,6 +13,21 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
-});
+});*/
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RecipeController;
+
+Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/recipes', [RecipeController::class, 'index']);
+
+Route::get('/recipes/{url}', [\App\Http\Controllers\RecipeController::class, 'show'])->name('recipes.show');
+
+Route::get('/contact', [ContactController::class, 'index']);
+Route::get('/contact/create', [ContactController::class, 'create']);
+
+Route::post('/contact', [ContactController::class, 'store']);
+
