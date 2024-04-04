@@ -23,7 +23,7 @@ class RecipeController extends Controller
      */
     public function create()
     {
-        //
+        return view('recipes.create',[]);
     }
 
     /**
@@ -53,7 +53,8 @@ class RecipeController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $recipe = Recipe::findOrFail($id);
+        return view('recipes.edit', compact('recipe'));
     }
 
     /**
@@ -61,14 +62,36 @@ class RecipeController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+         // Validate request data
+         $validatedData = $request->validate([
+            'title' => 'required',
+            'content' => 'required',
+            'ingredients' => 'required',
+            'price' => 'required|numeric',
+            'tags' => 'nullable|string',
+        ]);
+
+        // Find the recipe
+        $recipe = Recipe::findOrFail($id);
+
+        // Update recipe
+        $recipe->update($validatedData);
+
+        return redirect('/recipes')->with('success', 'Recipe updated successfully!');
     }
+    
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+     public function destroy(string $id)
     {
-        //
+        // Find the recipe
+        $recipe = Recipe::findOrFail($id);
+
+        // Delete the recipe
+        $recipe->delete();
+
+        return redirect('/recipes')->with('success', 'Recipe deleted successfully!');
     }
 }
