@@ -82,13 +82,7 @@ Créez un fichier database.sqlite dans le répertoire database/ de l’applicati
 Modifiez le fichier .env pour spécifier l’utilisation de SQLite et le chemin d’accès au fichier: 
 DB_CONNECTION=sqlite
 DB_DATABASE= /workspaces/pws-projet-2024-recettes-magodo_dankwah database/database.sqlite
-# DB_CONNECTION=mysql
-# DB_HOST=127.0.0.1
-# DB_PORT=3306
-# DB_DATABASE=larasite
-# DB_USERNAME=root
-# DB_PASSWORD=ic2a
-
+//rest of database code
 Lancez: php artisan migrate
 
 Exercice 4.1 - Créer les tables recipes, contacts et comments
@@ -241,10 +235,7 @@ Akua Serwaa Dankwah
 https://www.freecodecamp.org/
 
 
-
-
- 
- //existing code
+ ## Existing code
  [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/XkFLMmQ7)
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-7f7980b617ed060a017424585567c406b6ee15c891e84e1186181d67ecf80aa0.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=14189320)
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
