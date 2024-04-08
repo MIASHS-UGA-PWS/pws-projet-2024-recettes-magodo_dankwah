@@ -33,15 +33,15 @@ class ContactController extends Controller
         ]);
 
 
-        $contact = new Contact(); // On instancie un nouvel objet Contact
-        $contact->name = request('name'); // On attribue les valeurs des champs du formulaire
+        $contact = new Contact(); // we instantiate a new object contact
+        $contact->name = request('name'); // We assign values to the form fields
         $contact->email = request('email');
         $contact->message = request('message');
         $contact->phone = request('phone');
 
-        $contact->save(); // On sauvegarde les données dans la base de données
+        $contact->save(); // we save the data in the database
 
-        return redirect('/contact')->with('success', 'Message sent with sucess!!'); // On redirige l'utilisateur vers la page d'accueil
+        return redirect('/contact')->with('success', 'Message sent with sucess!!'); // we direct the user to the home page
 
     }
 }

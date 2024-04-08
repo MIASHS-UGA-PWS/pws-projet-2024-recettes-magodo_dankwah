@@ -19,10 +19,21 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\RecipeController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\RatingController;
+
+Route::post('/comments', [CommentController::class, 'store'])->name('comments.store');
+
+Route::get( '/recipes/create',[RecipeController::class, 'create'])->name('recipes.create');
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get( '/recipes/create',[RecipeController::class, 'create'])->name('recipes.create');
+Route::post('/recipe/{recipe}/rate', [RatingsController::class, 'store'])->name('recipe.rate');
+Route::post('/ratings/{recipe}', [RatingsController::class, 'store'])->name('ratings.store');
+
+
+Route::get('/recipes/{id}', [RecipeController::class, 'show'])->name('recipes.showRecipe');
+
 
 Route::get('/recipes', [RecipeController::class, 'index']);
 

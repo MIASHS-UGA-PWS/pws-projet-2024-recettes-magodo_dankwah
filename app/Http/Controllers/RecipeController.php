@@ -94,4 +94,16 @@ class RecipeController extends Controller
 
         return redirect('/recipes')->with('success', 'Recipe deleted successfully!');
     }
+
+    public function showRecipe($id)
+    {
+        $recipe = Recipe::find($id);
+        
+        // Check if the recipe exists
+        if (!$recipe) {
+            abort(404); // or handle the case where the recipe doesn't exist
+        }
+        
+        return view('recipe.show', ['recipe' => $recipe]);
+    }
 }
